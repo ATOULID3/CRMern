@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { IconChartBar, IconUser, IconSettings, IconLogout } from './Icons';
 
+
+
 const DashboardSidebar = () => {
   return (
     <div className="hidden md:flex md:flex-shrink-0">
@@ -29,6 +31,16 @@ const DashboardSidebar = () => {
               <IconUser className="mr-3 flex-shrink-0 h-6 w-6" />
               Profile
             </NavLink>
+            // Add this to your navigation items
+<NavLink
+  to="/dashboard/clients"
+  className={({ isActive }) => 
+    `group flex items-center px-2 py-2 text-sm font-medium rounded-md ${isActive ? 'bg-primary-50 text-primary-600' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'}`
+  }
+>
+  <IconUsers className="mr-3 flex-shrink-0 h-6 w-6" />
+  Clients
+</NavLink>
             <NavLink
               to="/dashboard/settings"
               className={({ isActive }) => 

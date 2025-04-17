@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "@types/nodemailer": "^6.4.17",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
@@ -19,6 +21,8 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.10.1",
     "nodemon": "^3.1.9"
   }
 }
