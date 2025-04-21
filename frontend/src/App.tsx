@@ -1,38 +1,22 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import Home from './pages/Home';
-import Login from './pages/Login';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Register from './pages/Register';
-import ProtectedRoute from './Components/ProtectedRoute';
-import DashboardLayout from './Components/DashboardLayout';
-import DashboardHome from './pages/dashboard/DashboardHome';
-import ProfilePage from './pages/dashboard/ProfilePage';
-import SettingsPage from './pages/dashboard/SettingsPage';
+import Login from './pages/Login';
+import Home from './pages/Home';
 
-const App = () => {
+
+function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          
-          {/* Dashboard Routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route element={<DashboardLayout />}>
-              <Route path="/dashboard" element={<DashboardHome />} />
-              <Route path="/dashboard/profile" element={<ProfilePage />} />
-              <Route path="/dashboard/settings" element={<SettingsPage />} />
-            </Route>
-          </Route>
-          
-          {/* Redirects */}
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;

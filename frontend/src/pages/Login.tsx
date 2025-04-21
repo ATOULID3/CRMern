@@ -16,7 +16,31 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {};
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        localStorage.setItem("token", data.token); // Save the JWT token
+        alert("Login successful!");
+        // Redirect to profile or homepage if needed
+        // navigate("/profile"); if you're using useNavigate
+      } else {
+        alert(data.error || "Login failed");
+      }
+    } catch (error) {
+      alert("Something went wrong");
+      console.error(error);
+    }
+  };
 
   return (
     <>

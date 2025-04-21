@@ -17,7 +17,30 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleRegister = async () => {};
+  const handleRegister = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: name, email, password }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        alert("Registration successful!");
+        // You can redirect the user to login here if needed
+        // navigate("/login");
+      } else {
+        alert(data.error || "Registration failed");
+      }
+    } catch (error) {
+      alert("Something went wrong");
+      console.error(error);
+    }
+  };
 
   return (
     <>
