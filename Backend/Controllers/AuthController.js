@@ -1,5 +1,5 @@
 // Importing necessary modules and models
-const User = require("../models/userModel");
+const User = require("../model/UserModel");
 const { check, validationResult } = require("express-validator");
 const jwtToken = require('jsonwebtoken');
 const { expressjwt: jwt } = require("express-jwt");

@@ -10,9 +10,10 @@ import {
   Grid,
 } from "@mui/material";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,6 +32,7 @@ const Login = () => {
       if (response.ok) {
         localStorage.setItem("token", data.token); // Save the JWT token
         alert("Login successful!");
+        navigate("/home");
         // Redirect to profile or homepage if needed
         // navigate("/profile"); if you're using useNavigate
       } else {
